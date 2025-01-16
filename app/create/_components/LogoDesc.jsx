@@ -3,7 +3,7 @@ import HeadingDescription from './HeadingDescription'
 import Lookup from '@/app/_data/Lookup'
 
 function LogoDesc({ onHandleInputChange, formData }) {
-  // Ensure formData is properly handled and safe for destructuring
+    
   const { desc } = formData || {};
 
   const handleChange = (e) => {

@@ -17,8 +17,7 @@ function PricingModel() {
                     height={60}/>
                     <h2 className='font-medium text-2xl'>{pricing.title}</h2>
                     <div>
-                        {pricing.features.map((feature,index)=>(
-                            
+                        {pricing.features.map((feature,index)=>(                           
                         ))}
                     </div>
                     </div>

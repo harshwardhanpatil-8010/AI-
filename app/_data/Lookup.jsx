@@ -2,7 +2,7 @@ import Image from "next/image"
 export default {
     HeroHeading: "AI Logo Maker",
     HeroSubheading: "Perfect Logos for Apps, Buisnesses, and websites",
-    HeroDesc:   "Create your own AI logo in just a few clicks",
+    HeroDesc: "Create your own AI logo in just a few clicks",
     InputTitlePlaceholder: "Enter your logo idea",
     LogoTitle: 'Logo Title',
     LogoTitleDescr: 'Add your buisness, App, or website Name for a custom logo',
