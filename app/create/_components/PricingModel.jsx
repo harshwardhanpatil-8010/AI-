@@ -1,10 +1,17 @@
+'use client'
 import React from 'react'
 import HeadingDescription from './HeadingDescription'
 import Lookup from '@/app/_data/Lookup'
+import { Button } from '@/components/ui/button'
 
 function PricingModel() {
+  useEffect(() =>{
+    if(formData?.title && typeof window!=='undefined'){
+      localStorage.setItem('formData', JSON.stringify(formData));
+    }
+  },[formData])
   return (
-    <div className='my-10'>
+    <div>
         <HeadingDescription 
         title={Lookup.LogoPricingModelTitle}
         description={Lookup.LogoPricingModelDesc}
@@ -18,9 +25,10 @@ function PricingModel() {
                     <h2 className='font-medium text-2xl'>{pricing.title}</h2>
                     <div>
                         {pricing.features.map((feature,index)=>(    
-                            // changes 
+                            <h2 className='text-lg mt-3' key={index}>{feature}</h2>
                         ))}
                     </div>
+                    <Button className="mt-3">{pricing.button}</Button>
                     </div>
             ))}
         </div>

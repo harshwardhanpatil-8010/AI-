@@ -1,7 +1,7 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Provider from "./provider";
-
+import { AuthKitProvider } from '@workos-inc/authkit-nextjs/components';
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -23,10 +23,11 @@ export default function RootLayout({ children }) {
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
+        <AuthKitProvider>
         <Provider> 
         {children}
         </Provider>
-        
+        </AuthKitProvider>
       </body>
     </html>
   );
