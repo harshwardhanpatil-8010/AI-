@@ -21,6 +21,8 @@ function CreateLogo() {
 
   return (
     <div className="mt-20 p-8 max-w-4xl mx-auto">
+      
+
       {/* Progress Bar */}
       <div className="mb-6">
         <div className="flex justify-between items-center">
