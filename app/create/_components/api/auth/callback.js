@@ -1,7 +1,8 @@
+"use server"
 import { WorkOS } from '@workos-inc/authkit-nextjs';
 
 export default async function handler(req, res) {
-  const workos = new WorkOS('WORKOS_API_KEY');
+  const workos = new WorkOS(process.env.WORKOS_API_KEY);
   const { code } = req.query;
 
   try {

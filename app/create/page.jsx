@@ -1,5 +1,6 @@
 "use client";
 import React, { useState } from "react";
+import { useRouter } from "next/router"; // Add useRouter to handle routing
 import LogoTitle from "./_components/LogoTitle";
 import { Button } from "@/components/ui/button";
 import { ArrowLeft, ArrowRight } from "lucide-react";
@@ -10,6 +11,7 @@ import LogoIdea from "./_components/LogoIdea";
 import PricingModel from "./_components/PricingModel";
 
 function CreateLogo() {
+  const router = useRouter(); // Initialize router
   const [step, setStep] = useState(1);
   const [formData, setFormData] = useState({});
 
@@ -19,10 +21,18 @@ function CreateLogo() {
 
   const totalSteps = 6;
 
+  const handleNextStep = () => {
+    if (formData.title) {
+      // If title is available, pass it to the URL
+      router.push(`/create?title=${encodeURIComponent(formData.title)}`);
+    } else {
+      // If title is missing, just increment the step
+      setStep(step + 1);
+    }
+  };
+
   return (
     <div className="mt-20 p-8 max-w-4xl mx-auto">
-      
-
       {/* Progress Bar */}
       <div className="mb-6">
         <div className="flex justify-between items-center">
@@ -89,7 +99,7 @@ function CreateLogo() {
         )}
         {step < totalSteps ? (
           <Button
-            onClick={() => setStep(step + 1)}
+            onClick={handleNextStep} // Call handleNextStep on click
             className="flex items-center"
           >
             Continue <ArrowRight className="ml-2" />

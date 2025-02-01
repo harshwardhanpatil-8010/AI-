@@ -1,12 +1,10 @@
-import { NextResponse } from 'next/server';
+import { authkitMiddleware } from '@workos-inc/authkit-nextjs';
 
-export function middleware(req) {
-  const user = req.cookies.get('user'); // Example: Check for logged-in user
-  const url = req.nextUrl.clone();
+export default authkitMiddleware({
+  middlewareAuth: {
+    enabled: true,
+    unauthenticatedPaths: ['/'], // Redirect unauthenticated users from these paths
+  },
+});
 
-  if (!user && url.pathname.startsWith('/dashboard')) {
-    return NextResponse.redirect(new URL('/login', req.url));
-  }
-
-  return NextResponse.next();
-}
+export const config = { matcher: ['/create', '/account/:page*'] };
